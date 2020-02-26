@@ -17,7 +17,7 @@ public class Main {
         //windowサイズを画面の最大サイズに設定
         frame.setBounds(desktopBounds);
 
-        int nodeRedius = 5;
+        int nodeRadius = 5;
         Canvas canvas = new Canvas(){
             @Override
             public void paint(Graphics g) {
@@ -31,16 +31,16 @@ public class Main {
                 graph.forEachNode(e->{
                     g.setColor(Color.BLACK);
                     g.drawOval(
-                            (int)e.pos.getX()-nodeRedius,
-                            (int)e.pos.getY()-nodeRedius,
-                            2*nodeRedius,
-                            2*nodeRedius);
+                            (int)e.pos.getX()-nodeRadius,
+                            (int)e.pos.getY()-nodeRadius,
+                            2*nodeRadius,
+                            2*nodeRadius);
                     g.setColor(Color.WHITE);
                     g.fillOval(
-                            (int)e.pos.getX()-nodeRedius,
-                            (int)e.pos.getY()-nodeRedius,
-                            2*nodeRedius,
-                            2*nodeRedius);
+                            (int)e.pos.getX()-nodeRadius,
+                            (int)e.pos.getY()-nodeRadius,
+                            2*nodeRadius,
+                            2*nodeRadius);
                 });
             }
         };
