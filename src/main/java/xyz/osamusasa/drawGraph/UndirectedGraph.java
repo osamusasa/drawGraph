@@ -2,10 +2,11 @@ package xyz.osamusasa.drawGraph;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.util.function.Consumer;
 
 public class UndirectedGraph {
-    Node[] nodes;
-    Edge[] edges;
+    private Node[] nodes;
+    private Edge[] edges;
 
     static UndirectedGraph getTestData(){
         UndirectedGraph g = new UndirectedGraph();
@@ -22,6 +23,17 @@ public class UndirectedGraph {
         g.edges[3] = g.new Edge(g.nodes[3], g.nodes[0]);
 
         return g;
+    }
+
+    public void forEachNode(Consumer<Node> c){
+        for(Node node : nodes) {
+            c.accept(node);
+        }
+    }
+    public void forEachEdges(Consumer<Edge> c){
+        for(Edge edge : edges){
+            c.accept(edge);
+        }
     }
 
     class Node{

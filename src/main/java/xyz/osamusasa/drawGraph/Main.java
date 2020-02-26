@@ -24,12 +24,12 @@ public class Main {
             public void paint(Graphics g) {
                 UndirectedGraph graph = UndirectedGraph.getTestData();
 
-                Arrays.asList(graph.edges).forEach(e->{
+                graph.forEachEdges(e->{
                     g.setColor(Color.BLACK);
                     g.drawLine((int)e.n1.pos.getX(), (int)e.n1.pos.getY(), (int)e.n2.pos.getX(), (int)e.n2.pos.getY());
                 });
 
-                Arrays.asList(graph.nodes).forEach(e->{
+                graph.forEachNode(e->{
                     g.setColor(Color.BLACK);
                     g.drawOval(
                             (int)e.pos.getX()-nodeRedius,
