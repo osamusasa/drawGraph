@@ -52,8 +52,8 @@ public class DynamicModel {
      */
     public UndirectedGraph update(UndirectedGraph g){
         Map<UndirectedGraph.Node, Vector2D> force = new HashMap<>(g.getNodeSize());
-        final int[] i = {0};
 
+        //各頂点に作用する力を計算
         g.forEachNode(n->{
             force.put(n,Vector2D.ZERO);
             g.forEachNode(m->{
@@ -73,9 +73,9 @@ public class DynamicModel {
                         force.get(n).add(u.mul(repulsionForce.applyAsInt(d)))
                 );
             });
-            i[0]++;
         });
 
+        //計算した力を元に頂点の位置を更新
         g.forEachNode(n->{
             Vector2D v = force.get(n);
             double dx = tParam > Math.abs(v.x)
