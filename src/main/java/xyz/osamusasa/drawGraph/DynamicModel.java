@@ -12,6 +12,13 @@ public class DynamicModel {
     private final IntUnaryOperator attractionForce;
     private final IntUnaryOperator repulsionForce;
 
+    /**
+     * コンストラクタ
+     *
+     * @param f_a 引力
+     * @param f_r 斥力
+     * @param t 温度パラメータ
+     */
     public DynamicModel(IntUnaryOperator f_a, IntUnaryOperator f_r, DoubleSupplier t){
         tParam = t.getAsDouble();
         tParamSupplier = t;
@@ -35,6 +42,14 @@ public class DynamicModel {
         return new DynamicModel(d->(int)(d*d/k), d->(int)(-k*k/d), t);
     }
 
+    /**
+     * アルゴリズムを１回計算し、グラフの位置を更新する
+     *
+     * 引数の無向グラフの位置も更新される
+     *
+     * @param g 無向グラフ
+     * @return 更新した無向グラフ
+     */
     public UndirectedGraph update(UndirectedGraph g){
         Map<UndirectedGraph.Node, Vector2D> force = new HashMap<>(g.getNodeSize());
         final int[] i = {0};

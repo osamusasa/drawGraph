@@ -5,6 +5,9 @@ import java.awt.geom.Point2D;
 import java.util.*;
 import java.util.function.Consumer;
 
+/**
+ * 無向グラフ
+ */
 public class UndirectedGraph {
     private Node[] nodes;
     private Edge[] edges;
@@ -91,9 +94,22 @@ public class UndirectedGraph {
         }
     }
 
+    /**
+     * グラフの頂点の数を返す
+     *
+     * @return グラフの頂点数
+     */
     public int getNodeSize(){
         return nodes.length;
     }
+
+    /**
+     * 二つのノードが辺によって接続されているかを返す
+     *
+     * @param n1 ノード１
+     * @param n2 ノード２
+     * @return 二つのノードが辺によって接続されていればtrue,そうでなければfalse
+     */
     public boolean isConnected(Node n1, Node n2){
         boolean r[] = {false};
         forEachEdges(e->{
