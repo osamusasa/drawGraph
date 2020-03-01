@@ -75,8 +75,4 @@ public class Main {
         canvas.repaint();
         frame.setVisible(true);
     }
-
-    private void initGraph(){
-
-    }
 }
